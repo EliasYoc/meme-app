@@ -1,0 +1,16 @@
+.main {
+  height: 70vh;
+  width: 100%;
+  background-color: rgb(96, 89, 104);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: linear-gradient(40deg, pink, blue);
+}
