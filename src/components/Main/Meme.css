@@ -1,6 +1,7 @@
 .meme {
-  background-color: rgb(199, 138, 138);
-  max-width: 100%;
+  margin: auto;
+  min-width: 400px;
+  width: 500px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -12,7 +13,7 @@
 .meme__titles {
   position: absolute;
   color: #fff;
-  font-size: 3rem;
+  text-align: center;
 }
 .meme__titles.top-text {
   top: 0;

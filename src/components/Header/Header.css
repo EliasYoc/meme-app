@@ -1,0 +1,22 @@
+.header {
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo {
+  font-size: 1.55rem;
+}
+
+.header__btns button {
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  padding: 0.8rem 0.4rem;
+}
+.header__btns button:not(:last-child) {
+  margin-right: 0.5rem;
+}

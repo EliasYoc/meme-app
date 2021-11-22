@@ -1,0 +1,14 @@
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.alert h2 {
+  color: #fff;
+  text-align: center;
+}
+.alert__video {
+  margin-top: 2rem;
+  width: 200px;
+}
