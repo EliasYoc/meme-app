@@ -4,18 +4,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 .header__logo {
   font-size: 1.55rem;
 }
-
+.header__btns {
+  height: 100%;
+  display: flex;
+}
 .header__btns button {
   color: #fff;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
   outline: none;
-  padding: 0.8rem 0.4rem;
+  padding: 0.6rem 0.4rem;
+  cursor: pointer;
+  display: flex;
+}
+.header__icon {
+  font-size: 1.4rem;
+  margin-left: 5px;
 }
 .header__btns button:not(:last-child) {
   margin-right: 0.5rem;

@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  topText: "",
-  bottomText: "",
-  titlesFontSize: 16,
+  uploadedSrcImg: null,
+  editionText: {
+    topText: "",
+    bottomText: "",
+    titlesFontSize: 16,
+  },
 };
 
 const textSlice = createSlice({
@@ -13,12 +16,22 @@ const textSlice = createSlice({
     editTitle: (state, action) => {
       return {
         ...state,
-        [action.payload.name]: action.payload.value,
+        editionText: {
+          ...state.editionText,
+          [action.payload.name]: action.payload.value,
+        },
       };
+    },
+    setSrcImg: (state, action) => {
+      return { ...state, uploadedSrcImg: action.payload };
+    },
+    clearEdition: (state, action) => {
+      return { ...initialState };
     },
   },
 });
 
-export const { editTitle } = textSlice.actions;
-export const selectTitles = (state) => state.text;
+export const { editTitle, setSrcImg } = textSlice.actions;
+export const selectTitles = (state) => state.text.editionText;
+export const selectSrcImage = (state) => state.text.uploadedSrcImg;
 export default textSlice.reducer;

@@ -6,13 +6,15 @@ import Main from "./components/Main/Main";
 
 function App() {
   return (
-    <div className="App">
-      <Toaster position="top-right" />
+    <>
+      <div className="App">
+        <Toaster position="top-right" />
 
-      <Main />
-      <Aside />
+        <Main />
+        <Aside />
+      </div>
       <Header />
-    </div>
+    </>
   );
 }
 

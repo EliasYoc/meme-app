@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { editTitle, selectTitles } from "../../../features/textSlice";
 import { useForm } from "../../../hooks/useForm";
+import InputRange from "../../InputRange";
 import "./EditTitles.css";
 import SectionLayout from "./SectionLayout";
 const EditTitles = () => {
@@ -30,11 +31,10 @@ const EditTitles = () => {
           value={titles.bottomText}
         />
       </SectionLayout>
-      <SectionLayout sectionTitle="Fuente">
-        <input
-          type="range"
-          min="20"
-          max="47"
+      <SectionLayout sectionTitle="Tamaño de fuente">
+        <InputRange
+          min="16"
+          max="200"
           name="titlesFontSize"
           onChange={handleInputChange}
           value={titles.titlesFontSize}

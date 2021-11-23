@@ -1,0 +1,10 @@
+.input-range {
+  display: flex;
+  align-items: center;
+}
+.input-range__input {
+  flex-grow: 1;
+}
+.input-range__span {
+  margin-left: 10px;
+}

@@ -1,8 +1,16 @@
 import html2canvas from "html2canvas";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { selectSrcImage, setSrcImg } from "../../features/textSlice";
+import { FiDownload } from "react-icons/fi";
+import { BiImageAdd } from "react-icons/bi";
 import "./Header.css";
 const Header = () => {
-  const handleDownload = () => {
+  const srcImg = useSelector(selectSrcImage);
+
+  const dispatch = useDispatch();
+
+  const handleDownloadPng = () => {
     const $meme = document.getElementById("meme");
     const prom = html2canvas($meme, {
       useCORS: true,
@@ -20,14 +28,37 @@ const Header = () => {
       success: "Descargado",
     });
   };
+  const handleClickUpload = () => {
+    document.getElementById("header__file").click();
+  };
+  const handleUploadImg = (e) => {
+    console.log(e);
+    const file = e.target.files[0];
+    if (e.target.files.length === 0) return;
+    const blob = URL.createObjectURL(file);
+    dispatch(setSrcImg(blob));
+  };
   return (
     <header className="header general-padding">
       <h2 className="header__logo bg-gradient txt-gradient">MemeYoc </h2>
       <div className="header__btns ">
-        <button className="bg-gradient" onClick={handleDownload}>
-          descargar png
+        {srcImg && (
+          <button className="bg-gradient" onClick={handleDownloadPng}>
+            descargar png
+            <FiDownload className="header__icon" />
+          </button>
+        )}
+
+        <input
+          id="header__file"
+          type="file"
+          accept="image/*"
+          onChange={handleUploadImg}
+        />
+        <button className="bg-gradient" onClick={handleClickUpload}>
+          Subir imagen
+          <BiImageAdd className="header__icon" />
         </button>
-        <button className="bg-gradient">Subir imagen</button>
       </div>
     </header>
   );

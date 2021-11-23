@@ -1,7 +1,8 @@
 .App {
-  height: 100vh;
+  height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .general-padding {
   padding: 0.4rem 0.4rem;
@@ -13,26 +14,10 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-input[type="range"] {
-  margin: 1rem 0;
-}
-.input-txt {
-  padding: 1rem;
-
-  border-radius: 10px;
-  border: none;
-  outline: none;
-}
-.input-txt:not(:last-child) {
-  margin-bottom: 1rem;
-}
-.edit-section-mg {
-  margin: 1rem 0;
-}
-
 ::-webkit-scrollbar {
   width: 8px;
-  background-color: rgba(135, 135, 135, 0.5);
+  height: 8px;
+  background: none;
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 20px;
@@ -41,4 +26,43 @@ input[type="range"] {
     rgba(228, 139, 213, 0.521),
     rgba(69, 69, 238, 0.486)
   );
+}
+/* Edition section */
+input[type="range"] {
+  margin: 1rem 0;
+}
+.input-txt {
+  padding: 0.7rem;
+
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+}
+.input-txt:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.edit-section-mg {
+  margin: 1rem 0;
+}
+
+input[type="file"] {
+  display: none;
+}
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type="range"] {
+  height: 0.5rem;
+  border-radius: 10px;
+  /* background: linear-gradient(60deg, rgb(186, 62, 165) 10%, #fff 10%); */
+}
+input[type="range"]::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background: linear-gradient(40deg, rgb(186, 62, 165), rgb(122, 77, 228));
+  cursor: pointer;
 }
