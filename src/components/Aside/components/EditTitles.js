@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { editTitle, selectTitles } from "../../../features/textSlice";
-import { useForm } from "../../../hooks/useForm";
 import InputRange from "../../InputRange";
 import "./EditTitles.css";
 import SectionLayout from "./SectionLayout";

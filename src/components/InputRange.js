@@ -1,10 +1,5 @@
 import { useEffect } from "react";
 import "./InputRange.css";
-const calcPercentaje = (val) => {
-  for (let i = 1; i < val + 1; i++) {
-    console.log();
-  }
-};
 const InputRange = ({ min, max, name, onChange, value }) => {
   useEffect(() => {
     const val = parseInt(((value - min) * 100) / (max - min));
