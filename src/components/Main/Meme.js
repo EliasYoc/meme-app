@@ -7,10 +7,12 @@ const Meme = () => {
   const src = useSelector(selectSrcImage);
   useEffect(() => {
     const $titles = document.querySelectorAll(".meme__titles");
-    $titles.forEach(
-      ($title) => ($title.style.fontSize = `${titles.titlesFontSize}px`)
-    );
-  }, [titles.titlesFontSize]);
+    $titles.forEach(($title) => {
+      $title.style.fontSize = `${titles.titlesFontSize}px`;
+      $title.style.webkitTextStroke = `${titles.titlesTextStroke}px black`;
+      // console.log($title.style);
+    });
+  }, [titles.titlesFontSize, titles.titlesTextStroke]);
   return (
     <section id="meme" className="meme">
       <h3

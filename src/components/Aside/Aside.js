@@ -8,7 +8,7 @@ const Aside = () => {
   return (
     <>
       {srcImg && (
-        <aside className="aside general-padding">
+        <aside className="aside general-padding animate__animated animate__fadeInUpBig">
           <EditTitles />
         </aside>
       )}

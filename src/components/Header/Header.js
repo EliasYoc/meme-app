@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectSrcImage, setSrcImg } from "../../features/textSlice";
 import { FiDownload } from "react-icons/fi";
 import { BiImageAdd } from "react-icons/bi";
+import { HiDotsVertical } from "react-icons/hi";
 import "./Header.css";
 const Header = () => {
   const srcImg = useSelector(selectSrcImage);
@@ -38,6 +39,10 @@ const Header = () => {
     const blob = URL.createObjectURL(file);
     dispatch(setSrcImg(blob));
   };
+  const handleShowOptions = () => {
+    const $imageOptions = document.querySelector(".header__btns");
+    $imageOptions.classList.toggle("show");
+  };
   return (
     <header className="header general-padding">
       <h2 className="header__logo bg-gradient txt-gradient">MemeYoc </h2>
@@ -60,6 +65,10 @@ const Header = () => {
           <BiImageAdd className="header__icon" />
         </button>
       </div>
+      <HiDotsVertical
+        onClick={handleShowOptions}
+        className="header__icon options"
+      />
     </header>
   );
 };

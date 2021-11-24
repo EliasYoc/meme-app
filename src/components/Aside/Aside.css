@@ -1,4 +1,6 @@
 .aside {
+  --animate-delay: 0s;
+  --animate-duration: 0.5s;
   height: 35vh;
   border-radius: 1rem 1rem 0 0;
   overflow: hidden;

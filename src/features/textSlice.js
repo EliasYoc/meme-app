@@ -6,6 +6,7 @@ const initialState = {
     topText: "",
     bottomText: "",
     titlesFontSize: 16,
+    titlesTextStroke: 0,
   },
 };
 

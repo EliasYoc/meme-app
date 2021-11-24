@@ -12,8 +12,21 @@
   font-size: 1.55rem;
 }
 .header__btns {
-  height: 100%;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
   display: flex;
+  flex-direction: column;
+  padding: 0.3rem 0.1rem 0;
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+  transform: translateY(200%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+.header__btns.show {
+  transform: translateY(0%);
 }
 .header__btns button {
   color: #fff;
@@ -24,6 +37,9 @@
   padding: 0.6rem 0.4rem;
   cursor: pointer;
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  width: 100%;
 }
 .header__icon {
   font-size: 1.4rem;
@@ -31,4 +47,32 @@
 }
 .header__btns button:not(:last-child) {
   margin-right: 0.5rem;
+}
+.header__icon.options {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+  .header__btns {
+    flex-direction: row;
+    position: static;
+    right: auto;
+    bottom: auto;
+    height: 100%;
+    padding: 0;
+    border-radius: none;
+    background-color: transparent;
+    width: auto;
+    z-index: 1;
+    transform: none;
+  }
+  .header__btns button {
+    width: auto;
+    margin: 0;
+  }
+  .header__icon.options {
+    display: none;
+  }
+  .header__btns.show {
+  }
 }

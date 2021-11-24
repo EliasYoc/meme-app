@@ -5,13 +5,14 @@ const InputRange = ({ min, max, name, onChange, value }) => {
     const val = parseInt(((value - min) * 100) / (max - min));
     // console.log(`val: ${value}, min: ${min}`, value - min);
     // console.log(`${value}px ${val}%`);
-    const $inpRange = document.querySelector(".input-range__input");
+    const $inpRange = document.querySelector(`#${name}`);
     $inpRange.style.background = `
     linear-gradient(90deg, rgb(186, 62, 165) ${val}%, #fff ${val + 2}%)`;
-  }, [min, max, value]);
+  }, [min, max, value, name]);
   return (
     <div className="input-range">
       <input
+        id={name}
         className="input-range__input"
         type="range"
         min={min}

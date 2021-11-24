@@ -7,7 +7,13 @@ import SectionLayout from "./SectionLayout";
 const EditTitles = () => {
   const titles = useSelector(selectTitles);
   const dispatch = useDispatch();
+
   const handleInputChange = (e) => {
+    // remove focus from inpText to avoid keyboard up
+    if (e.target.matches('[type="range"]')) {
+      const $inputTxt = document.querySelectorAll(".input-txt");
+      $inputTxt.forEach((input) => input.blur());
+    }
     dispatch(editTitle({ name: e.target.name, value: e.target.value }));
   };
   return (
@@ -30,13 +36,22 @@ const EditTitles = () => {
           value={titles.bottomText}
         />
       </SectionLayout>
-      <SectionLayout sectionTitle="Tamaño de fuente">
+      <SectionLayout sectionTitle="Tamaño del texto">
         <InputRange
           min="16"
           max="200"
           name="titlesFontSize"
           onChange={handleInputChange}
           value={titles.titlesFontSize}
+        />
+      </SectionLayout>
+      <SectionLayout sectionTitle="Bordes del texto">
+        <InputRange
+          min="0"
+          max="5"
+          name="titlesTextStroke"
+          onChange={handleInputChange}
+          value={titles.titlesTextStroke}
         />
       </SectionLayout>
     </>
