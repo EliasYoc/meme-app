@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectSrcImage, selectTitles } from "../../features/textSlice";
+import ElementDraggable from "../ElementDraggable";
 import "./Meme.css";
 const Meme = () => {
   const titles = useSelector(selectTitles);
@@ -13,16 +14,23 @@ const Meme = () => {
       // console.log($title.style);
     });
   }, [titles.titlesFontSize, titles.titlesTextStroke]);
+
   return (
     <section id="meme" className="meme">
-      <h3
-        //output 16
-        className="meme__titles top-text"
-      >
-        {titles.topText}
-      </h3>
+      <ElementDraggable>
+        <h3
+          //output 16
+
+          className="meme__titles draggable-box"
+        >
+          {titles.topText}
+        </h3>
+      </ElementDraggable>
+
       <img className="meme__img" src={src} alt="meme" />
-      <h3 className="meme__titles bottom-text">{titles.bottomText}</h3>
+      <ElementDraggable>
+        <h3 className="meme__titles draggable-box">{titles.bottomText}</h3>
+      </ElementDraggable>
     </section>
   );
 };

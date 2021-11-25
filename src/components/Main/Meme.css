@@ -13,15 +13,15 @@
 }
 .meme__titles {
   width: 100%;
-  position: absolute;
+  height: 100%;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   word-wrap: break-word;
   -webkit-text-stroke: 2px black;
 }
-.meme__titles.top-text {
-  top: 0;
-}
-.meme__titles.bottom-text {
-  bottom: 0;
+.draggable-box {
+  border: 1px solid rgb(22, 191, 182);
 }

@@ -12,6 +12,10 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const handleDownloadPng = () => {
+    const $draggableBoxes = document.querySelectorAll(".draggable-box");
+    $draggableBoxes.forEach(($draggableBox) => {
+      $draggableBox.style.border = "none";
+    });
     const $meme = document.getElementById("meme");
     const prom = html2canvas($meme, {
       useCORS: true,
@@ -22,6 +26,9 @@ const Header = () => {
       $a.href = canvas.toDataURL("image/png");
       $a.download = `meme.png`;
       $a.click();
+      $draggableBoxes.forEach(($draggableBox) => {
+        $draggableBox.style.border = "1px solid rgb(22, 191, 182)";
+      });
     });
     toast.promise(prom, {
       error: "error",
@@ -38,8 +45,9 @@ const Header = () => {
     if (e.target.files.length === 0) return;
     const blob = URL.createObjectURL(file);
     dispatch(setSrcImg(blob));
+    handleShowOrHideOptions();
   };
-  const handleShowOptions = () => {
+  const handleShowOrHideOptions = () => {
     const $imageOptions = document.querySelector(".header__btns");
     $imageOptions.classList.toggle("show");
   };
@@ -66,7 +74,7 @@ const Header = () => {
         </button>
       </div>
       <HiDotsVertical
-        onClick={handleShowOptions}
+        onClick={handleShowOrHideOptions}
         className="header__icon options"
       />
     </header>
