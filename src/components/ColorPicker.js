@@ -5,7 +5,6 @@ import {
   selectColorPicker,
   setPickerColor,
 } from "../features/textSlice";
-console.log("picker");
 const ColorPicker = () => {
   const picker = useSelector(selectColorPicker);
   const dispatch = useDispatch();
