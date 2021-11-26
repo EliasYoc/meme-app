@@ -3,6 +3,7 @@
   flex-direction: column;
 }
 .titles__h4 {
+  margin-bottom: 0.2rem;
   font-size: 1.3rem;
   color: #fff;
 }

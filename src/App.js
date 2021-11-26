@@ -10,7 +10,7 @@ function App() {
       <Header />
 
       <div className="App">
-        <Toaster position="top-right" />
+        <Toaster position="bottom-right" />
 
         <Main />
         <Aside />

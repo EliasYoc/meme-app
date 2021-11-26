@@ -18,8 +18,17 @@ const Meme = () => {
       $title.style.fontSize = `${titles.titlesFontSize}px`;
       $title.style.color = `rgba(${r}, ${g}, ${b}, ${a})`;
       $title.style.webkitTextStroke = `${titles.titlesTextStroke}px black`;
+      $title.style.textAlign = `${titles.alignText}`;
     });
-  }, [titles.titlesFontSize, titles.titlesTextStroke, r, g, b, a]);
+  }, [
+    titles.alignText,
+    titles.titlesFontSize,
+    titles.titlesTextStroke,
+    r,
+    g,
+    b,
+    a,
+  ]);
 
   return (
     <section id="meme" className="meme">

@@ -1,0 +1,17 @@
+.btn-icon {
+  min-width: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: #fff;
+}
+.btn-icon:focus {
+  outline: 2px solid red;
+}
+.btn-icon__icon {
+  font-size: 1.7rem;
+}
