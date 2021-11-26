@@ -16,8 +16,4 @@
 ### `me inspiré gracias al usuario savio martin`
 [github](https://github.com/saviomartin)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
 
