@@ -1,8 +1,6 @@
-# Getting Started with Create React App
+# Memeyoc
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## Proyecto para practicar con react, redux y otras herramientas
 
 In the project directory, you can run:
 
