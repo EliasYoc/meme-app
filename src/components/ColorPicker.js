@@ -12,13 +12,13 @@ const ColorPicker = () => {
     col: {
       width: "36px",
       height: "20px",
-      borderRadius: "2px",
+      borderRadius: "50px",
       background: `rgba(${picker.color.r}, ${picker.color.g}, ${picker.color.b}, ${picker.color.a})`,
     },
     swatch: {
       padding: "1px",
       background: "#fff",
-      borderRadius: "1px",
+      borderRadius: "50px",
       boxShadow: "0 0 0 1px rgba(0,0,0,.1)",
       display: "inline-block",
       cursor: "pointer",
@@ -50,7 +50,7 @@ const ColorPicker = () => {
   };
 
   return (
-    <div>
+    <>
       <div style={styles.swatch} onClick={handleClick}>
         <div style={styles.col} />
       </div>
@@ -61,7 +61,7 @@ const ColorPicker = () => {
           <ChromePicker color={picker.color} onChange={handleChange} />
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 

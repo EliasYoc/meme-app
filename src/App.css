@@ -35,9 +35,7 @@
   );
 }
 /* Edition section */
-input[type="range"] {
-  margin: 1rem 0;
-}
+
 .input-txt {
   padding: 0.7rem;
 
@@ -55,4 +53,10 @@ input[type="range"] {
 
 input[type="file"] {
   display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .App {
+    flex-direction: row;
+  }
 }
