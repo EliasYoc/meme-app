@@ -8,7 +8,7 @@ const Main = () => {
   return (
     <main
       style={srcImg && { backgroundColor: "rgb(38, 38, 38)" }}
-      className="main"
+      className={`main ${srcImg && "add-bg"}`}
     >
       {srcImg ? (
         <Meme />
