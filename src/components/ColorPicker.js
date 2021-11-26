@@ -1,4 +1,4 @@
-import { ChromePicker, SketchPicker } from "react-color";
+import { ChromePicker } from "react-color";
 import { useDispatch, useSelector } from "react-redux";
 import {
   displayOrHidePicker,
