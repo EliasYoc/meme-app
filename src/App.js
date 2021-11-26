@@ -7,13 +7,14 @@ import "animate.css";
 function App() {
   return (
     <>
+      <Header />
+
       <div className="App">
         <Toaster position="top-right" />
 
         <Main />
         <Aside />
       </div>
-      <Header />
     </>
   );
 }

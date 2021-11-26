@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { editTitle, selectTitles } from "../../../features/textSlice";
+import ColorPicker from "../../ColorPicker";
 import InputRange from "../../InputRange";
 import "./EditTitles.css";
 import SectionLayout from "./SectionLayout";
@@ -37,13 +38,16 @@ const EditTitles = () => {
         />
       </SectionLayout>
       <SectionLayout sectionTitle="Tamaño del texto">
-        <InputRange
-          min="16"
-          max="200"
-          name="titlesFontSize"
-          onChange={handleInputChange}
-          value={titles.titlesFontSize}
-        />
+        <div className="flex-row">
+          <InputRange
+            min="16"
+            max="200"
+            name="titlesFontSize"
+            onChange={handleInputChange}
+            value={titles.titlesFontSize}
+          />
+          <ColorPicker />
+        </div>
       </SectionLayout>
       <SectionLayout sectionTitle="Bordes del texto">
         <InputRange

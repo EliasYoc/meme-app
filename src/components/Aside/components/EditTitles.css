@@ -1,1 +1,10 @@
-
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+.flex-row > div:not(:last-child) {
+  flex-grow: 1;
+}
+.flex-row > div:last-child {
+  margin: 0 0 0 1rem;
+}

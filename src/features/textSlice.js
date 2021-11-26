@@ -8,6 +8,15 @@ const initialState = {
     titlesFontSize: 16,
     titlesTextStroke: 0,
   },
+  picker: {
+    displayColorPicker: false,
+    color: {
+      r: "241",
+      g: "112",
+      b: "19",
+      a: "1",
+    },
+  },
 };
 
 const textSlice = createSlice({
@@ -26,13 +35,34 @@ const textSlice = createSlice({
     setSrcImg: (state, action) => {
       return { ...state, uploadedSrcImg: action.payload };
     },
-    clearEdition: (state, action) => {
+    clearEdition: () => {
       return { ...initialState };
+    },
+    displayOrHidePicker: (state, action) => {
+      console.log(action.payload);
+      return {
+        ...state,
+        picker: {
+          ...state.picker,
+          displayColorPicker: action.payload,
+        },
+      };
+    },
+    setPickerColor: (state, action) => {
+      return {
+        ...state,
+        picker: {
+          ...state.picker,
+          color: action.payload,
+        },
+      };
     },
   },
 });
 
-export const { editTitle, setSrcImg } = textSlice.actions;
+export const { editTitle, setSrcImg, displayOrHidePicker, setPickerColor } =
+  textSlice.actions;
 export const selectTitles = (state) => state.text.editionText;
 export const selectSrcImage = (state) => state.text.uploadedSrcImg;
+export const selectColorPicker = (state) => state.text.picker;
 export default textSlice.reducer;

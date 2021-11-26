@@ -10,23 +10,27 @@
 }
 .header__logo {
   font-size: 1.55rem;
+  user-select: none;
 }
 .header__btns {
   width: 200px;
   background-color: #fff;
-  border-radius: 10px 10px 0 0;
+  border-radius: 0 0 10px 10px;
   display: flex;
   flex-direction: column;
-  padding: 0.3rem 0.1rem 0;
   position: absolute;
   right: 0;
-  bottom: 50px;
-  transform: translateY(200%);
-  transition: transform 0.3s ease;
+  top: 50px;
+  max-height: 0;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  overflow: hidden;
+  padding: 0;
+
   z-index: -1;
 }
 .header__btns.show {
-  transform: translateY(0%);
+  max-height: 150px;
+  padding: 0.3rem 0.4rem 0;
 }
 .header__btns button {
   color: #fff;

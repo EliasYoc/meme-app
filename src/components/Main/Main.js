@@ -6,7 +6,10 @@ import Meme from "./Meme";
 const Main = () => {
   const srcImg = useSelector(selectSrcImage);
   return (
-    <main className="main">
+    <main
+      style={srcImg && { backgroundColor: "rgb(38, 38, 38)" }}
+      className="main"
+    >
       {srcImg ? (
         <Meme />
       ) : (

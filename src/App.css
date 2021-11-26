@@ -12,7 +12,7 @@
   z-index: -100;
 }
 .general-padding {
-  padding: 0.4rem 0.4rem;
+  padding: 0.4rem;
 }
 .bg-gradient {
   background: linear-gradient(40deg, rgb(186, 62, 165), rgb(122, 77, 228));
