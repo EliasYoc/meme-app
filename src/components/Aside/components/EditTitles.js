@@ -31,11 +31,11 @@ const EditTitles = () => {
   };
   return (
     <>
-      <SectionLayout sectionTitle="Titulos">
+      <SectionLayout sectionTitle="Títulos">
         <input
           className="titles__input input-txt"
           name="topText"
-          placeholder="titulo superior"
+          placeholder="Título superior"
           type="text"
           onChange={handleInputChange}
           value={titles.topText}
@@ -43,7 +43,7 @@ const EditTitles = () => {
         <input
           className="titles__input input-txt"
           name="bottomText"
-          placeholder="titulo inferior"
+          placeholder="Título inferior"
           type="text"
           onChange={handleInputChange}
           value={titles.bottomText}
@@ -70,7 +70,7 @@ const EditTitles = () => {
           value={titles.titlesTextStroke}
         />
       </SectionLayout>
-      <SectionLayout sectionTitle="alineado">
+      <SectionLayout sectionTitle="Alineado">
         <div className="flex-row">
           <ButtonIcon
             onClick={handleClickAlignText}

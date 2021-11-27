@@ -57,7 +57,7 @@ const Header = () => {
       <div className="header__btns ">
         {srcImg && (
           <button className="bg-gradient" onClick={handleDownloadPng}>
-            descargar png
+            Descargar png
             <FiDownload className="header__icon" />
           </button>
         )}
@@ -69,7 +69,7 @@ const Header = () => {
           onChange={handleUploadImg}
         />
         <button className="bg-gradient" onClick={handleClickUpload}>
-          Subir imagen
+          Cargar imagen
           <BiImageAdd className="header__icon" />
         </button>
       </div>
