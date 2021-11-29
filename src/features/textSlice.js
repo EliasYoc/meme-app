@@ -8,6 +8,7 @@ const initialState = {
     titlesFontSize: 16,
     titlesTextStroke: 0,
     alignText: "left",
+    transformScale: "1",
   },
   picker: {
     displayColorPicker: false,
@@ -57,12 +58,13 @@ const textSlice = createSlice({
         },
       };
     },
-    changeAlignText: (state, action) => {
+    changeCssValue: (state, action) => {
+      console.log(action);
       return {
         ...state,
         editionText: {
           ...state.editionText,
-          alignText: action.payload,
+          [action.payload.cssPropName]: action.payload.minValue,
         },
       };
     },
@@ -74,7 +76,7 @@ export const {
   setSrcImg,
   displayOrHidePicker,
   setPickerColor,
-  changeAlignText,
+  changeCssValue,
 } = textSlice.actions;
 export const selectTitles = (state) => state.text.editionText;
 export const selectSrcImage = (state) => state.text.uploadedSrcImg;

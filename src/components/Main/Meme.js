@@ -16,6 +16,7 @@ const Meme = () => {
     const $titles = document.querySelectorAll(".meme__titles");
     $titles.forEach(($title) => {
       $title.style.fontSize = `${titles.titlesFontSize}px`;
+      $title.style.transform = `scale(${titles.transformScale})`;
       $title.style.color = `rgba(${r}, ${g}, ${b}, ${a})`;
       $title.style.webkitTextStroke = `${titles.titlesTextStroke}px black`;
       $title.style.textAlign = `${titles.alignText}`;
@@ -24,6 +25,7 @@ const Meme = () => {
     titles.alignText,
     titles.titlesFontSize,
     titles.titlesTextStroke,
+    titles.transformScale,
     r,
     g,
     b,

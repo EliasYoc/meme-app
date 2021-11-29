@@ -7,6 +7,8 @@
   display: flex;
   justify-content: center;
 }
+.meme__toCssValues {
+}
 .meme__img {
   /* width: 100%; */
   object-fit: contain;
@@ -21,9 +23,8 @@
   align-items: center;
   /* background-color: coral; */
   text-align: center;
-  transition: color 0.5s ease, font-size 0.1s ease;
+  transition: color 0.5s ease, font-size 0.1s ease, transform 0.3s ease;
   word-wrap: break-word;
-  -webkit-text-stroke: 2px black;
 }
 .draggable-box {
   border: 3px solid rgb(22, 191, 182);
