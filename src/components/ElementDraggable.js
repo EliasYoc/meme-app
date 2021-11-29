@@ -13,6 +13,7 @@ const ElementDraggable = ({ className, children }) => {
         x: 0,
         y: 0,
       }}
+      bounds="parent"
     >
       {children}
     </Rnd>
