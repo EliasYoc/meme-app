@@ -59,7 +59,6 @@ const textSlice = createSlice({
       };
     },
     changeCssValue: (state, action) => {
-      console.log(action);
       return {
         ...state,
         editionText: {

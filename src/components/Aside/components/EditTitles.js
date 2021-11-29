@@ -26,7 +26,6 @@ const EditTitles = () => {
   };
   const handleClickCssProp = (value, cssPropName) => {
     const minValue = value.toLowerCase();
-    console.log(minValue, cssPropName);
     dispatch(changeCssValue({ minValue, cssPropName }));
   };
   return (
