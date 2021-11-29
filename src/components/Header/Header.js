@@ -1,7 +1,11 @@
 import html2canvas from "html2canvas";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { selectSrcImage, setSrcImg } from "../../features/textSlice";
+import {
+  clearAllEdition,
+  selectSrcImage,
+  setSrcImg,
+} from "../../features/textSlice";
 import { FiDownload } from "react-icons/fi";
 import { BiImageAdd } from "react-icons/bi";
 import { HiDotsVertical } from "react-icons/hi";
@@ -40,6 +44,7 @@ const Header = () => {
     document.getElementById("header__file").click();
   };
   const handleUploadImg = (e) => {
+    dispatch(clearAllEdition());
     const file = e.target.files[0];
     if (e.target.files.length === 0) return;
     const blob = URL.createObjectURL(file);

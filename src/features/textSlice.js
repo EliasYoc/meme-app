@@ -67,6 +67,9 @@ const textSlice = createSlice({
         },
       };
     },
+    clearAllEdition: () => {
+      return { ...initialState };
+    },
   },
 });
 
@@ -76,6 +79,7 @@ export const {
   displayOrHidePicker,
   setPickerColor,
   changeCssValue,
+  clearAllEdition,
 } = textSlice.actions;
 export const selectTitles = (state) => state.text.editionText;
 export const selectSrcImage = (state) => state.text.uploadedSrcImg;
