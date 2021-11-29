@@ -34,19 +34,19 @@ const Meme = () => {
 
   return (
     <section id="meme" className="meme">
-      <ElementDraggable>
+      <ElementDraggable className="draggable-box">
         <h3
           //output 16
 
-          className="meme__titles draggable-box"
+          className="meme__titles"
         >
           {titles.topText}
         </h3>
       </ElementDraggable>
 
       <img draggable="false" className="meme__img" src={src} alt="meme" />
-      <ElementDraggable>
-        <h3 className="meme__titles draggable-box">{titles.bottomText}</h3>
+      <ElementDraggable className="draggable-box">
+        <h3 className="meme__titles">{titles.bottomText}</h3>
       </ElementDraggable>
     </section>
   );

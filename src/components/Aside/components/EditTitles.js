@@ -72,13 +72,7 @@ const EditTitles = () => {
       <SectionLayout sectionTitle="Ampliar">
         <div className="flex-row">
           <ButtonIcon
-            title=".5x"
-            onClick={handleClickCssProp}
-            cssPropName="transformScale"
-            cssValue=".5"
-          />
-          <ButtonIcon
-            title="1x"
+            title="normal"
             cssValue="1"
             onClick={handleClickCssProp}
             cssPropName="transformScale"
@@ -92,6 +86,12 @@ const EditTitles = () => {
           <ButtonIcon
             title="2x"
             cssValue="2"
+            onClick={handleClickCssProp}
+            cssPropName="transformScale"
+          />
+          <ButtonIcon
+            title="3x"
+            cssValue="3"
             onClick={handleClickCssProp}
             cssPropName="transformScale"
           />
