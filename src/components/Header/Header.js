@@ -40,7 +40,6 @@ const Header = () => {
     document.getElementById("header__file").click();
   };
   const handleUploadImg = (e) => {
-    console.log(e);
     const file = e.target.files[0];
     if (e.target.files.length === 0) return;
     const blob = URL.createObjectURL(file);
