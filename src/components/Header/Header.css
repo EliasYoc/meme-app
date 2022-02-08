@@ -47,7 +47,7 @@
 }
 .header__icon {
   font-size: 1.4rem;
-  margin-left: 5px;
+  margin-left: 0.7rem;
 }
 .header__btns button:not(:last-child) {
   margin-right: 0.5rem;

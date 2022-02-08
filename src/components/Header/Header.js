@@ -10,29 +10,41 @@ import { FiDownload, FiShare2 } from "react-icons/fi";
 import { BiImageAdd } from "react-icons/bi";
 import { HiDotsVertical } from "react-icons/hi";
 import "./Header.css";
-import { useState } from "react";
 const Header = () => {
   const srcImg = useSelector(selectSrcImage);
   const dispatch = useDispatch();
-  const [filesArray, setFilesArray] = useState("");
-  const handleDownloadPng = () => {
+  const optionsCanvas = {
+    useCORS: true,
+    backgroundColor: null,
+    // foreignObjectRendering: true,
+  };
+  const hideDragBoxBorder = () => {
     const $draggableBoxes = document.querySelectorAll(".draggable-box");
+
     $draggableBoxes.forEach(($draggableBox) => {
       $draggableBox.style.border = "none";
     });
+  };
+  const showDragBoxBorder = () => {
+    const $draggableBoxes = document.querySelectorAll(".draggable-box");
+
+    $draggableBoxes.forEach(($draggableBox) => {
+      $draggableBox.style.border = "3px solid rgb(22, 191, 182)";
+    });
+  };
+  const handleShowOrHideOptions = () => {
+    const $imageOptions = document.querySelector(".header__btns");
+    $imageOptions.classList.toggle("show");
+  };
+  const handleDownloadPng = () => {
     const $meme = document.getElementById("meme");
-    const prom = html2canvas($meme, {
-      useCORS: true,
-      backgroundColor: null,
-      // foreignObjectRendering: true,
-    }).then((canvas) => {
+    hideDragBoxBorder();
+    const prom = html2canvas($meme, optionsCanvas).then((canvas) => {
       const $a = document.createElement("a");
       $a.href = canvas.toDataURL("image/png");
       $a.download = `meme.png`;
       $a.click();
-      $draggableBoxes.forEach(($draggableBox) => {
-        $draggableBox.style.border = "1px solid rgb(22, 191, 182)";
-      });
+      showDragBoxBorder();
     });
     toast.promise(prom, {
       error: "error",
@@ -45,33 +57,45 @@ const Header = () => {
   };
   const handleUploadImg = (e) => {
     dispatch(clearAllEdition());
-    setFilesArray(e.target.files);
-
     const file = e.target.files[0];
     if (e.target.files.length === 0) return;
-    const blob = URL.createObjectURL(file);
-    dispatch(setSrcImg(blob));
+    const url = URL.createObjectURL(file);
+    dispatch(setSrcImg(url));
     handleShowOrHideOptions();
   };
-  const handleShowOrHideOptions = () => {
-    const $imageOptions = document.querySelector(".header__btns");
-    $imageOptions.classList.toggle("show");
-  };
+
   const handleClickShare = async () => {
-    // console.log(filesArray);
-    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
-      try {
-        await navigator.share({
-          files: filesArray,
-          title: "titulo del meme",
-          text: "Compartiendo meme",
+    const $meme = document.getElementById("meme");
+    let filesArray = null;
+    hideDragBoxBorder();
+    const canvas = await html2canvas($meme, optionsCanvas);
+    canvas.toBlob(
+      (blob) => {
+        // console.log(blob);
+        const file = new File([blob], "memazo.png", {
+          type: "image/png",
         });
-      } catch (error) {
-        alert(error);
-      }
-    } else {
-      alert(" no soporta compartir archivos");
-    }
+        filesArray = [file];
+        //Share function
+        if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+          navigator
+            .share({
+              files: filesArray,
+              title: "MemeYoc",
+              text: "Compartiendo meme",
+            })
+            .catch((error) => {
+              alert(error);
+            });
+          showDragBoxBorder();
+        } else {
+          alert(" no soporta compartir archivos");
+        }
+        // console.log(URL.createObjectURL(blob));
+      },
+      "image/png",
+      1
+    );
   };
   return (
     <header className="header general-padding">
