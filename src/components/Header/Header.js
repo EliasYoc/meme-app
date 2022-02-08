@@ -6,15 +6,15 @@ import {
   selectSrcImage,
   setSrcImg,
 } from "../../features/textSlice";
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiShare2 } from "react-icons/fi";
 import { BiImageAdd } from "react-icons/bi";
 import { HiDotsVertical } from "react-icons/hi";
 import "./Header.css";
+import { useState } from "react";
 const Header = () => {
   const srcImg = useSelector(selectSrcImage);
-
   const dispatch = useDispatch();
-
+  const [filesArray, setFilesArray] = useState("");
   const handleDownloadPng = () => {
     const $draggableBoxes = document.querySelectorAll(".draggable-box");
     $draggableBoxes.forEach(($draggableBox) => {
@@ -45,6 +45,8 @@ const Header = () => {
   };
   const handleUploadImg = (e) => {
     dispatch(clearAllEdition());
+    setFilesArray(e.target.files);
+
     const file = e.target.files[0];
     if (e.target.files.length === 0) return;
     const blob = URL.createObjectURL(file);
@@ -55,15 +57,37 @@ const Header = () => {
     const $imageOptions = document.querySelector(".header__btns");
     $imageOptions.classList.toggle("show");
   };
+  const handleClickShare = async () => {
+    // console.log(filesArray);
+    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+      try {
+        await navigator.share({
+          files: filesArray,
+          title: "titulo del meme",
+          text: "Compartiendo meme",
+        });
+      } catch (error) {
+        alert(error);
+      }
+    } else {
+      alert(" no soporta compartir archivos");
+    }
+  };
   return (
     <header className="header general-padding">
       <h2 className="header__logo bg-gradient txt-gradient">MemeYoc </h2>
       <div className="header__btns ">
         {srcImg && (
-          <button className="bg-gradient" onClick={handleDownloadPng}>
-            Descargar png
-            <FiDownload className="header__icon" />
-          </button>
+          <>
+            <button className="bg-gradient" onClick={handleClickShare}>
+              Compartir
+              <FiShare2 className="header__icon" />
+            </button>
+            <button className="bg-gradient" onClick={handleDownloadPng}>
+              Descargar png
+              <FiDownload className="header__icon" />
+            </button>
+          </>
         )}
 
         <input
