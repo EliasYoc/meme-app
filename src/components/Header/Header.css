@@ -46,6 +46,8 @@
   width: 100%;
 }
 .header__icon {
+  width: 22px;
+  height: 22px;
   font-size: 1.4rem;
   margin-left: 0.7rem;
 }

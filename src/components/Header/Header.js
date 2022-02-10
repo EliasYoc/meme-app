@@ -10,7 +10,10 @@ import { FiDownload, FiShare2 } from "react-icons/fi";
 import { BiImageAdd } from "react-icons/bi";
 import { HiDotsVertical } from "react-icons/hi";
 import "./Header.css";
+import { useState } from "react";
+import Loader from "../Loader";
 const Header = () => {
+  const [shareIsLoading, setShareIsLoading] = useState(false);
   const srcImg = useSelector(selectSrcImage);
   const dispatch = useDispatch();
   const optionsCanvas = {
@@ -65,6 +68,7 @@ const Header = () => {
   };
 
   const handleClickShare = async () => {
+    setShareIsLoading(true);
     const $meme = document.getElementById("meme");
     let filesArray = null;
     hideDragBoxBorder();
@@ -88,6 +92,7 @@ const Header = () => {
               alert(error);
             });
           showDragBoxBorder();
+          setShareIsLoading(false);
         } else {
           alert(" no soporta compartir archivos");
         }
@@ -105,7 +110,11 @@ const Header = () => {
           <>
             <button className="bg-gradient" onClick={handleClickShare}>
               Compartir
-              <FiShare2 className="header__icon" />
+              {shareIsLoading ? (
+                <Loader className="header__icon" />
+              ) : (
+                <FiShare2 className="header__icon" />
+              )}
             </button>
             <button className="bg-gradient" onClick={handleDownloadPng}>
               Descargar png

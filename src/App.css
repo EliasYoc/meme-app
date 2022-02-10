@@ -22,8 +22,8 @@
   -webkit-text-fill-color: transparent;
 }
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   background: none;
 }
 ::-webkit-scrollbar-thumb {
@@ -31,7 +31,7 @@
   background: linear-gradient(
     40deg,
     rgba(228, 139, 213, 0.521),
-    rgba(69, 69, 238, 0.486)
+    rgba(157, 72, 253, 0.486)
   );
 }
 /* Edition section */

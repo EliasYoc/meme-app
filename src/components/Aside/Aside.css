@@ -1,21 +1,57 @@
 .aside {
   --animate-delay: 0s;
   --animate-duration: 0.5s;
-  /* height: 35vh; */
-  height: 50%;
-  border-radius: 1rem 1rem 0 0;
+  flex-shrink: 0;
+  background: linear-gradient(
+    40deg,
+    rgba(107, 56, 110, 0.712),
+    rgba(66, 22, 97, 0.726)
+  );
+  /* border-radius: 1rem 1rem 0 0; */
   overflow: hidden;
   overflow-y: auto;
-  background-color: rgba(140, 140, 140, 0.282);
-  backdrop-filter: blur(10px);
+  transition: flex-basis 0.03s ease;
+  position: relative;
+  flex-basis: 50%;
+}
+.aside.hide {
+  flex-basis: 0px;
+  padding: 0;
 }
 .aside::-webkit-scrollbar {
   display: none;
 }
+.aside__exit {
+  display: flex;
+  color: #fff;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border-radius: 50px;
+  padding: 0.2rem;
+  transition: background 0.3s ease;
+}
+.aside__exit:hover {
+  background-color: #e4e4e43f;
+}
+.aside.hide-aside {
+  flex-basis: 0%;
+  padding: 0;
+}
 
 @media only screen and (min-width: 600px) {
+  .aside__exit {
+    cursor: pointer;
+  }
   .aside {
-    padding-bottom: 0px;
+    background: rgba(140, 140, 140, 0.282);
+    backdrop-filter: blur(10px);
+
+    border-radius: 0;
+    flex-basis: 35%;
+    padding: 0.5rem;
     height: 100%;
+    transition: flex-basis 0.3s ease;
   }
 }

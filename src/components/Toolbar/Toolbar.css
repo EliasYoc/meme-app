@@ -1,0 +1,44 @@
+.tb-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+.tb-container.isMobile {
+  margin-bottom: 4rem;
+}
+.tb-container.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.toolbar {
+  background-color: rgba(186, 186, 186, 0.753);
+  border-radius: 2rem;
+  padding: 0.4rem;
+}
+.toolbar-icon {
+  border-radius: 50px;
+  display: flex;
+  font-size: 1.5rem;
+  padding: 0.4rem;
+  transition: background 0.3s ease;
+}
+.toolbar-icon:active {
+  background-color: rgba(128, 128, 128, 0.445);
+}
+@media only screen and (min-width: 600px) {
+  .tb-container {
+    width: auto;
+    height: 100%;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    margin-right: 0.4rem;
+  }
+  .toolbar-icon {
+    cursor: pointer;
+  }
+}

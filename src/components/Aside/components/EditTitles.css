@@ -6,3 +6,9 @@
 .flex-row.grow-first-child > *:first-child {
   width: 100%;
 }
+
+@media only screen and (min-width: 600px) {
+  .flex-row {
+    flex-wrap: wrap;
+  }
+}
