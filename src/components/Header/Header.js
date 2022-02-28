@@ -2,6 +2,7 @@ import html2canvas from "html2canvas";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  addInput,
   clearAllEdition,
   selectSrcImage,
   setSrcImg,
@@ -65,6 +66,7 @@ const Header = () => {
     const url = URL.createObjectURL(file);
     dispatch(setSrcImg(url));
     handleShowOrHideOptions();
+    dispatch(addInput(2));
   };
 
   const handleClickShare = async () => {

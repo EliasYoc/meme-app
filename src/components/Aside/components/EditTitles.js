@@ -3,6 +3,7 @@ import { CgFormatLeft, CgFormatRight } from "react-icons/cg";
 import { FiAlignCenter } from "react-icons/fi";
 import {
   changeCssValue,
+  editInputRange,
   editTitle,
   selectTitles,
 } from "../../../features/textSlice";
@@ -11,6 +12,7 @@ import ColorPicker from "../../ColorPicker";
 import InputRange from "../../InputRange";
 import SectionLayout from "./SectionLayout";
 import "./EditTitles.css";
+import { useEffect } from "react";
 
 const EditTitles = () => {
   const titles = useSelector(selectTitles);
@@ -21,32 +23,41 @@ const EditTitles = () => {
     if (e.target.matches('[type="range"]')) {
       const $inputTxt = document.querySelectorAll(".input-txt");
       $inputTxt.forEach((input) => input.blur());
+      dispatch(editInputRange({ name: e.target.name, value: e.target.value }));
     }
-    dispatch(editTitle({ name: e.target.name, value: e.target.value }));
+    if (e.target.matches('[type="text"]')) {
+      dispatch(editTitle({ name: e.target.name, value: e.target.value }));
+    }
   };
   const handleClickCssProp = (value, cssPropName) => {
     const minValue = value.toLowerCase();
     dispatch(changeCssValue({ minValue, cssPropName }));
   };
+  useEffect(() => {
+    const $inputTextList = document.querySelectorAll(
+      ".titles__input.input-txt"
+    );
+    $inputTextList.forEach(($input) =>
+      dispatch(editTitle({ name: $input.name, value: "" }))
+    );
+  }, [dispatch, titles.inputAmount]);
+
   return (
     <>
       <SectionLayout sectionTitle="Títulos">
-        <input
-          className="titles__input input-txt"
-          name="topText"
-          placeholder="Título superior"
-          type="text"
-          onChange={handleInputChange}
-          value={titles.topText}
-        />
-        <input
-          className="titles__input input-txt"
-          name="bottomText"
-          placeholder="Título inferior"
-          type="text"
-          onChange={handleInputChange}
-          value={titles.bottomText}
-        />
+        {new Array(titles.inputAmount).fill("texto").map((txt, i) => {
+          return (
+            <input
+              key={i}
+              className="titles__input input-txt"
+              name={`input${i}`}
+              placeholder={`${txt} ${i + 1}`}
+              type="text"
+              onChange={handleInputChange}
+              value={titles.inputTextList[`input${i}`] || ""}
+            />
+          );
+        })}
       </SectionLayout>
       <SectionLayout sectionTitle="Tamaño del texto">
         <div className="flex-row grow-first-child">

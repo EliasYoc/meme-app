@@ -3,12 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   uploadedSrcImg: null,
   editionText: {
-    topText: "",
-    bottomText: "",
     titlesFontSize: 16,
     titlesTextStroke: 0,
     alignText: "left",
     transformScale: "1",
+    // si la cantidad default es 2 entonces agregar 2 objetos a inputTxtList
+    inputAmount: 2,
+    inputTextList: {
+      input0: "",
+      input1: "",
+      // ... los siguientes son dinamicos
+    },
   },
   picker: {
     displayColorPicker: false,
@@ -25,7 +30,29 @@ const textSlice = createSlice({
   name: "text",
   initialState,
   reducers: {
+    addInput: (state, { payload }) => {
+      return {
+        ...state,
+        editionText: {
+          ...state.editionText,
+          inputAmount: payload,
+        },
+      };
+    },
     editTitle: (state, action) => {
+      return {
+        ...state,
+        editionText: {
+          ...state.editionText,
+          // [action.payload.name]: action.payload.value,
+          inputTextList: {
+            ...state.editionText.inputTextList,
+            [action.payload.name]: action.payload.value,
+          },
+        },
+      };
+    },
+    editInputRange: (state, action) => {
       return {
         ...state,
         editionText: {
@@ -37,8 +64,12 @@ const textSlice = createSlice({
     setSrcImg: (state, action) => {
       return { ...state, uploadedSrcImg: action.payload };
     },
-    clearEdition: () => {
-      return { ...initialState };
+    clearText: (state) => {
+      return {
+        ...state,
+        editionText: initialState.editionText,
+        picker: initialState.picker,
+      };
     },
     displayOrHidePicker: (state, action) => {
       return {
@@ -75,11 +106,14 @@ const textSlice = createSlice({
 
 export const {
   editTitle,
+  editInputRange,
   setSrcImg,
   displayOrHidePicker,
   setPickerColor,
   changeCssValue,
   clearAllEdition,
+  clearText,
+  addInput,
 } = textSlice.actions;
 export const selectTitles = (state) => state.text.editionText;
 export const selectSrcImage = (state) => state.text.uploadedSrcImg;

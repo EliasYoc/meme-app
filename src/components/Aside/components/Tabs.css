@@ -1,0 +1,29 @@
+.tabs{
+color: #fff;
+  display: flex;
+  gap: .5rem;
+  overflow: auto;
+  font-size: 1.2rem;
+}
+.tabs::-webkit-scrollbar{
+  display: none;
+}
+.tabs__tab{
+  flex-grow: 1;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: rgba(177, 176, 176, 0.274);
+  transition: background .3s ease, color .3s ease;
+  text-align: center;
+}
+.tabs__tab.active{
+  color: #fff;
+  background: linear-gradient(40deg, rgb(186, 62, 165), rgb(122, 77, 228));
+
+}
+@media only screen and (min-width: 600px) {
+  .tabs__tab{
+    cursor: pointer;
+    user-select: none;
+  }
+}

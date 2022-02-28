@@ -12,7 +12,7 @@ const Main = () => {
       ) : (
         <VideoGif
           src="https://res.cloudinary.com/diusrxrra/video/upload/v1637548903/akita-llora_juosy3.webm"
-          title="No hay imagenes para hacer memazos"
+          title="No hay imágenes para hacer memazos"
         />
       )}
     </main>

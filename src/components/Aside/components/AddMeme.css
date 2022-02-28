@@ -1,0 +1,28 @@
+.gifs-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: .5rem;
+}
+.gifs-list__card{
+  border-radius: 1rem;
+    background-color: rgba(226, 226, 226, 0.486);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  font-size: .8rem;
+
+}
+.gifs-list__card > img{
+width: 100%;
+height: 150px;
+object-fit: cover;
+}
+.gifs-list__name{
+  text-align: center;
+}
+@media only screen and (min-width: 600px){
+  .gifs-list__card{
+    cursor: pointer;
+  }
+}

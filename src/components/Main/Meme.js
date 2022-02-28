@@ -9,9 +9,11 @@ import ElementDraggable from "../ElementDraggable";
 import "./Meme.css";
 const Meme = () => {
   const titles = useSelector(selectTitles);
+  // console.log(titles.inputTextList);
   const { color } = useSelector(selectColorPicker);
   const { r, g, b, a } = color;
   const src = useSelector(selectSrcImage);
+  const inputTextArr = Object.values(titles.inputTextList);
   useEffect(() => {
     const $titles = document.querySelectorAll(".meme__titles");
     $titles.forEach(($title) => {
@@ -34,7 +36,12 @@ const Meme = () => {
 
   return (
     <section id="meme" className="meme">
-      <ElementDraggable className="draggable-box">
+      {inputTextArr.map((text, i) => (
+        <ElementDraggable key={i} className="draggable-box">
+          <h3 className="meme__titles">{text}</h3>
+        </ElementDraggable>
+      ))}
+      {/* <ElementDraggable className="draggable-box">
         <h3
           //output 16
 
@@ -42,12 +49,12 @@ const Meme = () => {
         >
           {titles.topText}
         </h3>
-      </ElementDraggable>
+      </ElementDraggable> */}
 
       <img draggable="false" className="meme__img" src={src} alt="meme" />
-      <ElementDraggable className="draggable-box">
+      {/* <ElementDraggable className="draggable-box">
         <h3 className="meme__titles">{titles.bottomText}</h3>
-      </ElementDraggable>
+      </ElementDraggable> */}
     </section>
   );
 };
