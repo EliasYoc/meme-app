@@ -29,7 +29,7 @@
 }
 .header__btns.show {
   max-height: 150px;
-  padding: 0.3rem 0.4rem 0;
+  padding: 0 0.4rem 0;
 }
 .header__btns button {
   color: #fff;

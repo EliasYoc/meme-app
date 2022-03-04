@@ -7,7 +7,7 @@ const InputRange = ({ min, max, name, onChange, value }) => {
     // console.log(`${value}px ${val}%`);
     const $inpRange = document.querySelector(`#${name}`);
     $inpRange.style.background = `
-    linear-gradient(90deg, rgb(186, 62, 165) ${val}%, #fff ${val + 2}%)`;
+    linear-gradient(90deg, rgb(186, 62, 165) ${val}%, #fff ${val}%)`;
   }, [min, max, value, name]);
   return (
     <div className="input-range">

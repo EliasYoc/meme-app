@@ -25,8 +25,8 @@ const ColorPicker = () => {
     },
     popover: {
       position: "absolute",
-      top: "30px",
-      right: "0px",
+      top: "300px",
+      left: "50px",
       zIndex: "2",
     },
     cover: {
